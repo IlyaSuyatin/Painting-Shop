@@ -1,0 +1,26 @@
+{% load static %}
+<nav class="menu">
+    <div class="container menu_content">
+        <div>
+            <a id="logo" href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+            </a>
+            <a href="{% url 'shop' %}" id="shop">shop</a>
+        </div>
+        <div>
+            {% if request.user.is_authenticated %}
+            
+            <span>
+                Welcome, {{request.user.username}}
+            </span>
+            <a href="{% url 'logout' %}">Log-out</a>
+            <a href="{% url 'painting_create' %}">Post Painting</a>
+            
+            {% else %}
+            <a href="{% url 'login' %}">log-in</a>
+            <a href="{% url 'signup' %}">sign-up</a>
+
+            {% endif %}
+        </div>
+    </div>
+</nav>

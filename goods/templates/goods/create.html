@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shop-Post{% endblock title %}
+
+{% block main %}
+
+<section class="create_painting">
+    <h2>Create Your Own Painting</h2>
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Post</button>
+    </form>
+</section>
+
+{% endblock main %}

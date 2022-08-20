@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shop{% endblock title %}
+
+{% block main %}
+
+<section class="paintings">
+    <div class="painting">
+        <img src="{{painting.image.url}}" alt="">
+        <table>
+            <thead>
+                <tr>
+                    <td>parameter</td>
+                    <td>data</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>name</td>
+                    <td>{{painting.name}}</td>
+                </tr>
+                <tr>
+                    <td>subject</td>
+                    <td>{{painting.subject}}</td>
+                </tr>
+                <tr>
+                    <td>discription</td>
+                    <td>{{painting.discription}}</td>
+                </tr>
+                <tr>
+                    <td>author</td>
+                    <td>{{painting.author}}</td>
+                </tr>
+                <tr>
+                    <td>size</td>
+                    <td>{{painting.size}}</td>
+                </tr>
+                <tr>
+                    <td>price</td>
+                    <td>$ {{painting.price}}</td>
+                </tr>
+                <tr>
+                    <td>created</td>
+                    <td> {{painting.created}}</td>
+                </tr>
+                <tr>
+                    <td>updated</td>
+                    <td> {{painting.update}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock main %}

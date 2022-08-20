@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shop{% endblock title %}
+
+{% block main %}
+
+<section class="filters">
+    <form action="" method="GET">
+        <input type="text" placeholder="enter item name" name="title">
+        <select name="theme" id="">
+            <option value="Traditional landscapes">Traditional landscapes</option>
+        </select>
+        <button>Search</button>
+    </form>
+    <a href="">Ascending Prices</a>
+    <a href="">Descending Prices</a>
+</section>
+
+<section class="paintings">
+    {% for painting in paintings %}
+    
+    <div class="painting">
+        <img src="{{painting.image.url}}" alt="">
+        <h3>{{painting.name}}</h3>
+        <p>{{painting.price}}</p>
+        <a href="{% url 'painting_detail' painting.slug %}">View More</a>
+    </div>
+    
+    {% endfor %}
+</section>
+
+{% endblock main %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Welcome{% endblock title %}
+{% block header %}
+
+<header style="background-image: url({% static 'images/bg.jpg' %});">
+    <div class="container">
+        <h1>Painting Shop</h1>
+        <h2 id="slogan">Beautiful Paintings on a Budget</h2>
+    </div>
+</header>
+{% endblock header %}
+
+{% block main %}
+
+<section>
+    <h2>Painting Shop - is...</h2>
+    <p>Large range of painting themes:</p>
+    <ul class="painting_types">
+        <li><p>Traditional landscapes</p><img src="{% static 'images/paintings_Traditional_Landscapes.jpg' %}" alt="Traditional landscapes"></li>
+        <li><p>Local Views</p><img src="{% static 'images/paintings_Local_Views.jpg' %}" alt="Local Views"></li>
+        <li><p>Modern or semi-abstract landscapes</p><img src="{% static 'images/paintings_Modern_or_semi-abstract_landscapes.jpg' %}" alt="Modern or semi-abstract landscapes"></li>
+        <li><p>Abstracts</p><img src="{% static 'images/paintings_Abstracts.jpg' %}" alt="Abstracts"></li>
+        <li><p>Portraits</p><img src="{% static 'images/paintings_Portraits.jpg' %}" alt="Portraits"></li>
+        <li><p>Figure studies</p><img src="{% static 'images/paintings_Figure_studies.jpg' %}" alt="Figure studies"></li>
+        <li><p>Wildlife</p><img src="{% static 'images/paintings_Wildlife.jpg' %}" alt="Wildlife"></li>
+        <li><p>Impressionistic Landscapes</p><img src="{% static 'images/paintings_Impressionistic_Landscapes.jpg' %}" alt="Impressionistic landscapes"></li>
+        <li><p>Surrealism</p><img src="{% static 'images/paintings_Surrealism.jpg' %}" alt="Surrealism"></li>
+    </ul>
+</section>
+<section class="painting_types">
+    <h2>Painting Shop - is...</h2>
+    <p>Large range of sizes</p>
+    <img src="{% static 'images/sizes.jpg' %}" alt="">
+</section>
+
+{% endblock main %}
+
+{% block footer %}
+
+<h2>Do You Want To Join?</h2>
+<a href="" id="join">Join</a>
+
+{% endblock footer %}
