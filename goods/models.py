@@ -1,9 +1,20 @@
+from math import degrees
+from pickle import TRUE
 from django.db import models
 from django.forms import CharField
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.template.defaultfilters import slugify
 
 # Create your models here.
+
+
+def create_slug(name):
+    slug = slugify(name)
+    painting = Painting.objects.filter(slug = slug)
+    if painting.exists():
+        slug = f"{slug}-{painting.first().id}"
+    return slug
 
 class Painting(models.Model):
     SIZES = (
@@ -32,7 +43,7 @@ class Painting(models.Model):
 
     name = models.CharField(max_length=100)
     discription = models.TextField()
-    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     author = models.CharField(max_length=50)
     size = models.CharField(choices=SIZES, max_length=7)
     subject = models.CharField(choices=SUBJECTS, max_length=100)
@@ -43,3 +54,6 @@ class Painting(models.Model):
     slug = models.SlugField(unique=True)
     def __str__(self):
         return f"{self.name} - {self.customer}"
+    def save(self, *args, **kwargs):
+        self.slug = create_slug(self.name)
+        return super().save(*args, **kwargs)

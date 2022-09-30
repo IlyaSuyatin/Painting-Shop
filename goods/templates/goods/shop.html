@@ -6,14 +6,17 @@
 
 <section class="filters">
     <form action="" method="GET">
-        <input type="text" placeholder="enter item name" name="title">
+        <input type="text" placeholder="enter item name" name="title" value="{{title}}">
         <select name="theme" id="">
-            <option value="Traditional landscapes">Traditional landscapes</option>
+            <option value="">Painting Themes</option>
+            <option value="Traditional landscapes">Traditional landscapes</option>¨
         </select>
+        <input type="radio" id="ascending" name="order" value="ASC">
+        <label for="ascending">Ascending Prices</label>
+        <input type="radio" id="descending" name="order" value="DSC">
+        <label for="descending">Descending Prices</label>
         <button>Search</button>
     </form>
-    <a href="">Ascending Prices</a>
-    <a href="">Descending Prices</a>
 </section>
 
 <section class="paintings">
@@ -23,7 +26,7 @@
         <img src="{{painting.image.url}}" alt="">
         <h3>{{painting.name}}</h3>
         <p>{{painting.price}}</p>
-        <a href="{% url 'painting_detail' painting.slug %}">View More</a>
+        <a href="{% url 'painting_detail' painting.slug %}">View More <i class="fa-solid fa-circle-info"></i> </a>
     </div>
     
     {% endfor %}
