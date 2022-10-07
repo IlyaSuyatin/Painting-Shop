@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-955t3)y@6n!gb5afokj+w&14^6+cmgds0f-f5tw-q349-og)(v
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["artvinchishop.herokuapp.com"]
 
 
 INSTALLED_APPS = [
